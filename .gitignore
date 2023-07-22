@@ -1,0 +1,5 @@
+build
+samples/*
+!samples/*.mila
+.idea/
+cmake-build-debug-wsl/

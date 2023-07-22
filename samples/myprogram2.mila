@@ -1,0 +1,49 @@
+program fun;
+
+{ shadowing variables, local variables, procedure/function parameters, print string}
+
+procedure shadow(Y: integer);
+var XX: integer;
+var X: integer;
+begin
+    XX := Y;
+    write('shadow XX: ');
+    writeln(XX);
+    X := 999;
+    write('shadow X: ');
+    writeln(X);
+end;
+
+{ multidimensional array, indexing in any range,  }
+
+var X : array [-3 .. 0] of array [10 .. 13] of array [-1 .. 2] of integer;
+var XX : integer;
+begin
+    XX := 5;
+    write('before shadow XX: ');
+    writeln(XX);
+    shadow(10);
+    write('after shadow XX: ');
+    writeln(XX);
+    for I := -3 to 0 do begin
+        for J := 10 to 13 do begin
+            for K := -1 to 2 do begin
+                X[I][J][K] := I + J + K;
+            end;
+        end;
+    end;
+
+    X[0][0][0] := X[3][3][3];
+
+    for I := -3 to 0 do begin
+        write('I: ');
+        writeln(I);
+        for J := 10 to 13 do begin
+            for K := -1 to 2 do begin
+                write(X[I][J][K]);
+                write(' ');
+            end;
+            writeln('');
+        end;
+    end;
+end.

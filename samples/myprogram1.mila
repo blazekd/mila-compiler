@@ -1,0 +1,41 @@
+program gcd;
+
+const size = 20;
+
+{ break, continue, constants, expressions, nested blocks, if else  }
+
+var I, J, TEMP : integer;
+var X : array [0 .. 20] of array [0 .. 20] of integer;
+begin
+    for I := 0 to size do begin
+        for J := 0 to size do begin
+            if ((I + J) mod 2 = 0) then
+                X[I][J] := 999
+            else
+                X[I][J] := I + J;
+            if (I + J > 5) then
+                break;
+
+        end;
+    end;
+
+    I := 8;
+    J := 14;
+
+    while (I < size) do begin
+        X[I][J] := 10+5*-I div (J div 7);  { X[I][14] = 10 + (5 * (-I)) / (14 / 7) = -10, -15, -20, -25 } {I = 8,10,12,14}
+        I := I + 2;
+        if (I >= 15) then
+            break;
+    end;
+
+
+
+    for I := 0 to size do begin
+        for J := 0 to size do begin
+            write(X[I][J]);
+            write(' ');
+        end;
+        writeln('');
+    end;
+end.

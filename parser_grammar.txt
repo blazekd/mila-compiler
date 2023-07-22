@@ -1,0 +1,114 @@
+//FINAL PARSER GRAMMAR
+
+//TERMINAL SYMBOLS
+program ident ; begin end . var : , integer string array [ numb ] of := for to do function ( ) while then const = else forward <> < <= > >= + - or * div mod and not exit if downto procedure
+
+//NON-TERMINAL SYMBOLS
+A B C D D' E E' E'' F F' F'' G G' H I I' J J' K K' L L' M N O O' O'' P Q Q' R R' S S' S'' S''' T U
+
+//STARTING SYMBOL
+A
+
+//RULES
+A -> program ident ; B
+B -> var E B
+B -> U .
+B -> function ident ( Q ) : H ; C T ; B
+B -> procedure ident ( Q ) ; C T ; B
+B -> const J B
+C -> var E C
+C -> 
+D -> O R
+D -> U R
+D -> for ident := I D'
+D -> while I do U R
+D -> exit R
+D -> break R
+D -> continue R
+D -> S R
+D' -> to I do U R
+D' -> downto I do U R
+E -> ident E' : H ; E''
+E' -> , ident E'
+E' -> 
+E'' -> E
+E'' -> 
+F -> [ I ] F'''
+F -> ( G ) 
+F -> 
+F' -> ident F
+F'' -> numb
+F'' -> F'
+F''' -> [ I ] F'''
+F''' -> 
+G -> I G'
+G -> string G'
+G -> 
+G' -> , G
+G' -> 
+H -> integer
+H -> array [ P . . P ] of H 
+I -> K I'
+I' -> = K I'
+I' -> <> K I'
+I' -> < K I'
+I' -> <= K I'
+I' -> > K I'
+I' -> >= K I'
+I' -> 
+J -> ident = numb ; J'
+J' -> ident = numb ; J'
+J' ->
+K -> L K'
+K' -> + L K'
+K' -> - L K'
+K' -> or L K'
+K' ->
+L -> M L'
+L' -> * M L'
+L' -> div M L'
+L' -> mod M L'
+L' -> and M L'
+L' -> xor M L'
+L' ->
+M -> not M
+M -> N
+N -> - N
+N -> F''
+N -> ( I )
+O -> ident O'
+O' -> := I
+O' -> [ I ]
+O' -> ( G )
+O'' -> := I 
+O'' -> [ I ] O''
+P -> - P
+P -> numb
+Q -> ident E' : H Q'
+Q' -> ; Q
+Q' ->
+R -> ; R'
+R -> 
+R' -> D
+R' ->
+S -> if I then S'
+S' -> U S''
+S' -> O S''
+S' -> exit S''
+S' -> continue S''
+S' -> break S''
+S'' -> else S'''
+S'' ->
+S''' -> O
+S''' -> exit
+S''' -> break
+S''' -> continue
+S''' -> U
+T -> U
+T -> forward
+U -> begin D end
+
+
+
+
+
