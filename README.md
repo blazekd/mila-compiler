@@ -12,7 +12,7 @@ The goal of this work was to create LL(1) grammar and then create compiler front
 * If, While (with break statement)
 * For (to and downto; with break statement)
 * Nested blocks, shadowing variables
-* Static arrays (indexed in any interval of values): 15% (4,5 bodů),
+* Static arrays (indexed in any interval of values),
 * Procedures, Functions, local variables, exit
 * Function and procedure parameters
 * Recursion
